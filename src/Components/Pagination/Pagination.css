@@ -1,0 +1,24 @@
+.pagination {
+    display: flex;
+}
+
+.pagination-number {
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    padding-right: 10px;
+    cursor: pointer;
+    color: #474955;
+    cursor: pointer;
+}
+
+.pagination-number:hover {
+    color: #7EBC3C;
+}
+
+.active {
+    color: #7EBC3C;
+}

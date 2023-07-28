@@ -1,0 +1,145 @@
+.search {
+  display: flex;
+  align-items: center;
+  width: 1077px;
+  margin: 0 auto;
+  padding-top: 23px;
+  margin-bottom: 15px;
+}
+
+.input {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  width: 631px;
+  height: 52px;
+  background: #5A5C66;
+  border: none;
+  padding-left: 26px;
+  color: #FFFFFF;
+}
+
+.input::placeholder {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #B2B7BF;
+}
+
+[type='search'] {
+  border: none;
+  outline: none;
+}
+
+.search-icon {
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  margin-left: -40px;
+}
+
+input[type=text]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=text]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* .mian-search {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.mian-search img {
+  width: 16px;
+  height: 16px;
+}
+
+.input {
+  width: 0;
+  height: 30px;
+  background: none;
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  outline: none;
+  transition: 0.5s;
+  border: none;
+}
+
+.input::placeholder {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  color: #929292;
+}
+
+.mian-search:hover input {
+  width: 200px;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #e9e9e9;
+}
+
+.mian-search img {
+  transform: translate(-50%, -50%);
+  font-size: 26px;
+  transition: 0.2s;
+}
+
+.mian-search:hover img {
+  opacity: 0;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+
+  .input {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+  }
+
+  .col-25 {
+    width: 10%;
+  }
+
+  .mian-search:hover input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 1180px) {
+
+  .input {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+  }
+
+  .col-25 {
+    width: 10%;
+  }
+
+  .mian-search:hover input {
+    width: 150px;
+  }
+} */
