@@ -3,3 +3,15 @@
   width: 1232px;
   box-shadow: 0px 4px 27px 0px #E6E7EAC7;
 }
+
+@media (max-width: 1179px) {
+  .App {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .App {
+    width: 100%;
+  }
+}

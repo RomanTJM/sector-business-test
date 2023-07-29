@@ -2,17 +2,20 @@
     display: flex;
 }
 
-.pagination-number {
+.pagination-btn {
     font-family: Roboto;
     font-size: 18px;
     font-style: italic;
     font-weight: 700;
     line-height: 25px;
     letter-spacing: 0em;
-    padding-right: 10px;
+    width: 26px;
     cursor: pointer;
     color: #474955;
-    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    height: 25px;
 }
 
 .pagination-number:hover {
@@ -21,4 +24,11 @@
 
 .active {
     color: #7EBC3C;
+}
+
+@media (max-width: 767px) {
+    .pagination-btn {
+        width: 20px;
+        font-size: 15px;
+    }
 }

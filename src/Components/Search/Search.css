@@ -59,6 +59,26 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+
+@media (max-width: 1179px) {
+  .search {
+    width: 100%;
+  }
+
+  .input {
+    width: 50%;
+  }
+
+} 
+
+@media (max-width: 768px) {
+  .input {
+    width: 100%;
+  }
+}
+
+
+
 /* .mian-search {
   display: flex;
   justify-content: end;

@@ -2,10 +2,10 @@ import React from 'react';
 import './Pagination.css'
 
 
-export const Pagination = ({ countrysPerPage, totalCountry, paginate }) => {
+export const Pagination = ({ tablePerPage, totalTable, paginate }) => {
     const pageNumbens = []
 
-    for (let i = 1; i <= Math.ceil(totalCountry / countrysPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(totalTable / tablePerPage); i++) {
         pageNumbens.push(i)
     }
     return (
@@ -13,12 +13,12 @@ export const Pagination = ({ countrysPerPage, totalCountry, paginate }) => {
             {
                 pageNumbens.map(number => (
                     <div key={number}>
-                        <div
-                            className="pagination-number"
+                        <button
+                            className="pagination-btn"
                             onClick={() => paginate(number)}
                         >
                             {number}
-                        </div>
+                        </button>
                     </div>
                 ))
             }

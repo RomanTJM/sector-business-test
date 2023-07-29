@@ -1,23 +1,55 @@
 import React, { useState } from 'react';
+import { PAGE_SIZE } from '../../Const/Const'
 import { BlogCard } from '../BlogCard/BlogCard';
 import './Main.css';
 import { Pagination } from '../Pagination/Pagination';
 import { Search } from '../Search/Search';
 import Arrow from '../../Icon/Arrow.svg';
 
-export const Main = ({ filtredBlogs, onSearchHandler, sortData }) => {
+export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
+
+    const [directionSort, setDirectionSort] = useState(true)
 
     // Пагинация (постраничный вывод)
     const [currentPage, SetCurrentPage] = useState(1)
-    const [countrysPerPage] = useState(10)
+    const tablePerPage = PAGE_SIZE;
 
-    const lastCountryIndex = currentPage * countrysPerPage
-    const firstountryIndex = lastCountryIndex - countrysPerPage
-    const currentCountry = filtredBlogs.slice(firstountryIndex, lastCountryIndex)
+    const lastTableIndex = currentPage * tablePerPage
+    const firstountryIndex = lastTableIndex - tablePerPage
+    const currentTable = filtredBlogs.slice(firstountryIndex, lastTableIndex)
 
     const paginate = pageNumber => SetCurrentPage(pageNumber)
     const nextPage = () => SetCurrentPage(prev => prev + 1)
     const prevPage = () => SetCurrentPage(prev => prev - 1)
+
+    // поиск
+
+    const onSearchHandler = (substr) => {
+        const newBlog = blogs.filter(
+          (blog) => blog.title.includes(substr) || blog.body.includes(substr)
+        );
+        setFiltredBlogs(newBlog);
+      };
+
+    //   Сортировка
+
+    const sortData = (field) => {
+
+        const copyData = filtredBlogs.concat();
+
+        let sortData;
+
+        if (directionSort) {
+          sortData = copyData.sort(
+            (a, b) => {return a[field] > b[field] ? 1 : -1}
+          )
+        } sortData = copyData.reverse(
+          (a, b) => {return a[field] > b[field] ? 1 : -1}
+        )
+
+        setFiltredBlogs(sortData)
+        setDirectionSort(!directionSort)
+    }
 
     return (
         <div className='main'>
@@ -37,7 +69,7 @@ export const Main = ({ filtredBlogs, onSearchHandler, sortData }) => {
                 </div>
             </div>
             {
-                currentCountry.map((item) => (
+                currentTable.map((item) => (
                     <BlogCard
                         key={item.id}
                         title={item.title}
@@ -50,8 +82,8 @@ export const Main = ({ filtredBlogs, onSearchHandler, sortData }) => {
             <div className='pagination-block'>
                 <button className='btn-page' onClick={prevPage}>Назад</button>
                 <Pagination
-                    countrysPerPage={countrysPerPage}
-                    totalCountry={filtredBlogs.length}
+                    tablePerPage={tablePerPage}
+                    totalTable={filtredBlogs.length}
                     paginate={paginate}
                 />
                 <button className='btn-page' onClick={nextPage}>Далее</button>
