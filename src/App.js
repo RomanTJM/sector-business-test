@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Main } from './Components/Main/Main';
 import { LoadBlog } from './Api/Api'
+import { Loader } from './Components/Loader/Loader';
 
 function App() {
 
   const [blogs, setBlogs] = useState([])
   const [filtredBlogs, setFiltredBlogs] = useState([])
-  
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     const initBlog = async () => {
       const blog = await LoadBlog();
@@ -19,15 +21,20 @@ function App() {
     };
 
     initBlog();
+    setIsLoading(false)
   }, [])
 
   return (
     <div className="App">
-      <Main
-        filtredBlogs={filtredBlogs}
-        setFiltredBlogs={setFiltredBlogs}
-        blogs={blogs}
-      />
+      {isLoading ?
+        <Loader />
+        :
+        <Main
+          filtredBlogs={filtredBlogs}
+          setFiltredBlogs={setFiltredBlogs}
+          blogs={blogs}
+        />
+      }
     </div>
   );
 }

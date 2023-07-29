@@ -1,0 +1,19 @@
+.btn-sort {
+    width: 12px;
+    height: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    padding-left: 39px;
+}
+
+@media (max-width: 1179px) {
+    .btn-sort {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-sort {
+        padding-left: 5px;
+    }
+}

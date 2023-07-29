@@ -2,7 +2,15 @@ import React from 'react';
 import './Search.css';
 import SearchIcon from '../../Icon/SearchIcon.svg'
 
-export const Search = ({ onSearchHandler }) => {
+export const Search = ({ blogs, setFiltredBlogs }) => {
+
+    const onSearchHandler = (substr) => {
+        const newBlog = blogs.filter(
+            (blog) => blog.title.includes(substr) || blog.body.includes(substr)
+        );
+        setFiltredBlogs(newBlog);
+    };
+
     return (
         <div className='search'>
             <input

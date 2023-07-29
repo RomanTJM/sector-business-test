@@ -2,7 +2,7 @@ import React from 'react';
 import './Pagination.css'
 
 
-export const Pagination = ({ tablePerPage, totalTable, paginate }) => {
+export const Pagination = ({ tablePerPage, totalTable, paginate, pageActive, currentPage }) => {
     const pageNumbens = []
 
     for (let i = 1; i <= Math.ceil(totalTable / tablePerPage); i++) {
@@ -14,7 +14,7 @@ export const Pagination = ({ tablePerPage, totalTable, paginate }) => {
                 pageNumbens.map(number => (
                     <div key={number}>
                         <button
-                            className="pagination-btn"
+                            className={(currentPage === number) ? `pagination-btn ${pageActive}` : `pagination-btn`}
                             onClick={() => paginate(number)}
                         >
                             {number}

@@ -22,6 +22,10 @@
     color: #7EBC3C;
 }
 
+.pagination-number:active {
+    color: #7EBC3C;
+}
+
 .active {
     color: #7EBC3C;
 }
