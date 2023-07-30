@@ -4,8 +4,9 @@ import { BlogCard } from '../BlogCard/BlogCard';
 import './Main.css';
 import { Pagination } from '../Pagination/Pagination';
 import { Search } from '../Search/Search';
-import Arrow from '../../Icon/Arrow.svg';
-// import { SortTable } from '../SortTable/SortTable';
+import { TableHeader } from '../TableHeader/TableHeader';
+import { PrevButton } from '../PrevButton/PrevButton';
+import { NextButton } from '../NextButton/NextButton';
 
 export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
     const [directionSort, setDirectionSort] = useState(true)
@@ -21,20 +22,6 @@ export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
         SetCurrentPage(pageNumber)
         setPageActive('active')
     }
-
-    const prevPage = () => {
-        if (currentPage < 2) {
-            return
-        } SetCurrentPage(currentPage - 1)
-    }
-
-    const nextPage = () => {
-        if (currentPage > PAGE_SIZE - 1) {
-            return
-        } SetCurrentPage(currentPage + 1)
-    }
-
-    //   Сортировка
 
     const sortData = (field) => {
         const copyData = filtredBlogs.concat();
@@ -57,20 +44,7 @@ export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
                 blogs={blogs}
                 setFiltredBlogs={setFiltredBlogs}
             />
-            <div className='main-table-header'>
-                <div className='main-table-cell'>
-                    <h2>ID</h2>
-                    <img src={Arrow} onClick={() => sortData('id')} className='btn-sort' />
-                </div>
-                <div className='main-table-cell'>
-                    <h2>Заголовок</h2>
-                    <img src={Arrow} onClick={() => sortData('title')} className='btn-sort' />
-                </div>
-                <div className='main-table-cell'>
-                    <h2>Описание</h2>
-                    <img src={Arrow} onClick={() => sortData('body')} className='btn-sort' />
-                </div>
-            </div>
+            <TableHeader sortData={sortData} />
             {
                 currentTable.map((item) => (
                     <BlogCard
@@ -83,7 +57,9 @@ export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
                 )
             }
             <div className='pagination-block'>
-                <button className='btn-page' onClick={prevPage}>Назад</button>
+                <PrevButton
+                    currentPage={currentPage}
+                    SetCurrentPage={SetCurrentPage} />
                 <Pagination
                     tablePerPage={tablePerPage}
                     totalTable={filtredBlogs.length}
@@ -91,7 +67,10 @@ export const Main = ({ filtredBlogs, setFiltredBlogs, blogs }) => {
                     pageActive={pageActive}
                     currentPage={currentPage}
                 />
-                <button className='btn-page' onClick={nextPage}>Далее</button>
+                <NextButton
+                    currentPage={currentPage}
+                    SetCurrentPage={SetCurrentPage}
+                />
             </div>
         </div>
     )

@@ -34,3 +34,9 @@
   border-bottom: none;
   padding: 15px 11px;
 }
+
+@media (max-width: 768px) {
+  .blog_card {
+    grid-template-columns: 10% 40% 50%;
+  }
+}

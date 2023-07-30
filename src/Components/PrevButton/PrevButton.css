@@ -1,0 +1,18 @@
+.btn-page {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0em;
+    border: none;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #474955;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .btn-page {
+        font-size: 15px;
+    }
+}

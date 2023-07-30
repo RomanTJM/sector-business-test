@@ -1,0 +1,56 @@
+.main-table-header {
+    display: grid;
+    grid-template-columns: 10% 50% 40%;
+    background: #474955;
+    box-shadow: 0px 4px 27px 0px #E6E7EAC7;
+    height: 54px;
+}
+
+.main-table-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-table-cell h2 {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    color: #FFFFFF;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-sort {
+    width: 12px;
+    height: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    padding-left: 39px;
+}
+
+.btn-page:hover {
+    color: #7EBC3C;
+}
+
+.active {
+    color: #7EBC3C;
+}
+
+@media (max-width: 1179px) {
+    .btn-sort {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-table-header {
+        grid-template-columns: 10% 40% 50%;
+    }
+
+    .btn-sort {
+        padding-left: 5px;
+    }
+}
